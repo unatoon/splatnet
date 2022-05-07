@@ -295,6 +295,12 @@ class Config:
 
         return self._iksm_session
 
+    def language(self) -> str:
+        return self._language
+
+    def timezone_offset(self) -> str:
+        return str(self._timezone_offset)
+
     def set_language(self, language) -> None:
         self.language = language
         self.store()
