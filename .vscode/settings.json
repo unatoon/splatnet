@@ -1,0 +1,10 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+    },
+    "black-formatter.path": [".venv/bin/black"],
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": ".venv/bin/flake8",
+    "python.linting.lintOnSave": true,
+}
