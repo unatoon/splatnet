@@ -69,7 +69,7 @@ class GearSkill(BaseModel):
 
 class GearSkills(BaseModel):
     main: GearSkill
-    subs: list[GearSkill]
+    subs: list[Optional[GearSkill]]
 
 
 class PlayerType(BaseModel):
