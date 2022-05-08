@@ -1,10 +1,3 @@
-# splatnet
-
-Python wrapper for Splatnet API (Splatoon API).
-
-## Usage
-
-```python
 from splatnet.splatnet2 import Config, Splatnet2
 
 config = Config()
@@ -28,4 +21,3 @@ for r in results.results:
 
 print(f"{total_paint_point=}")
 print(f"{team_total_kill_count=}")
-```
