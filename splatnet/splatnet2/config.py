@@ -303,7 +303,7 @@ class Config:
 
     def set_language(self, language) -> None:
         self.language = language
-        self.store()
+        self._store()
 
     def _is_expired(self) -> bool:
         if self._session_expires is None:
@@ -344,10 +344,15 @@ class Config:
                 self._timezone_offset = config_json["timezone_offset"]
 
     def _store(self):
+        if self._session_expires is None:
+            expires = None
+        else:
+            expires = self._session_expires.isoformat()
+
         config = {
             "session_token": self._session_token,
             "iksm_session": self._iksm_session,
-            "session_expires": self._session_expires.isoformat(),
+            "session_expires": expires,
             "language": self._language,
             "timezone_offset": self._timezone_offset,
         }
