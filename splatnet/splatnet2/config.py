@@ -177,6 +177,12 @@ class IksmSessionGetter:
         response = requests.post(
             "https://elifessler.com/s2s/api/gen2", headers=headers, data=data
         )
+        log.debug(
+            "_get_s2_hash response: status=%s, headers=%s, body=%s",
+            response.status_code,
+            response.headers,
+            response.text,
+        )
         return json.loads(response.text)["hash"]
 
     def _get_f_token(self, token: str, iid: str) -> str:
