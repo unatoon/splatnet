@@ -19,7 +19,10 @@ class Splatnet2:
         return Results(**data)
 
     def result(self, battle_number: str) -> Result:
-        pass
+        data = self._call(f"/api/results/{battle_number}")
+        with open("result.json", "w") as f:
+            f.write(json.dumps(data))
+        return Result(**data)
 
     def _call(self, path: str) -> dict:
         headers = {
@@ -49,3 +52,5 @@ if __name__ == "__main__":
     splatnet = Splatnet2(config)
     results = splatnet.results()
     print([r.battle_number for r in results.results])
+    for result in results.results:
+        splatnet.result(results.results[0].battle_number)

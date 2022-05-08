@@ -2,10 +2,6 @@ from typing import Optional
 from pydantic import BaseModel
 
 
-class Result(BaseModel):
-    pass
-
-
 class TeamResult(BaseModel):
     key: str
     name: str
@@ -58,10 +54,10 @@ class Weapon(BaseModel):
 
 
 class Udemae(BaseModel):
-    is_number_reached: bool
+    is_number_reached: Optional[bool]
     is_x: bool
     name: str
-    number: int
+    number: Optional[int]
     s_plus_number: Optional[int]
 
 
@@ -128,7 +124,7 @@ class CrownPlayer(BaseModel):
     pass
 
 
-class ResultsResult(BaseModel):
+class Result(BaseModel):
     battle_number: str
     crown_players: Optional[list[CrownPlayer]]
     elapsed_time: Optional[int]
@@ -136,9 +132,11 @@ class ResultsResult(BaseModel):
     estimate_x_power: Optional[int]
     game_mode: GameMode
     my_team_count: Optional[int]
+    my_team_members: Optional[list[PlayerResult]]
     my_team_percentage: Optional[float]
     my_team_result: TeamResult
     other_team_count: Optional[int]
+    other_team_members: Optional[list[PlayerResult]]
     other_team_percentage: Optional[float]
     other_team_result: TeamResult
     player_result: PlayerResult
@@ -166,6 +164,6 @@ class ResultsSummary(BaseModel):
 
 
 class Results(BaseModel):
-    results: list[ResultsResult]
+    results: list[Result]
     unique_id: str
     summary: ResultsSummary
