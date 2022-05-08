@@ -2,6 +2,12 @@
 
 Python wrapper for Splatnet API (Splatoon API).
 
+## Install
+
+```bash
+pip install splatnet
+```
+
 ## Usage
 
 ```python
