@@ -29,3 +29,17 @@ for r in results.results:
 print(f"{total_paint_point=}")
 print(f"{team_total_kill_count=}")
 ```
+
+## Data Schema
+
+See [schema definition](https://github.com/unatoon/splatnet/blob/main/splatnet/splatnet2/models.py).
+
+## Config
+
+You can specify config file path and language.
+
+```python
+from splatnet.splatnet2 import Config
+
+config = Config(path="path/to/config.json", language="ja-JP")
+```
