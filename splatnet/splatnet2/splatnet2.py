@@ -20,8 +20,6 @@ class Splatnet2:
 
     def result(self, battle_number: str) -> Result:
         data = self._call(f"/api/results/{battle_number}")
-        with open("result.json", "w") as f:
-            f.write(json.dumps(data))
         return Result(**data)
 
     def _call(self, path: str) -> dict:
