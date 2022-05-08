@@ -344,21 +344,26 @@ class Config:
                 self._timezone_offset = config_json["timezone_offset"]
 
     def _store(self):
-        if self._session_expires is None:
-            expires = None
-        else:
-            expires = self._session_expires.isoformat()
+        with open(self.path, "w") as f:
+            f.write(json.dumps(self.data()))
 
-        config = {
+    def data(self):
+        data = {
             "session_token": self._session_token,
             "iksm_session": self._iksm_session,
-            "session_expires": expires,
             "language": self._language,
             "timezone_offset": self._timezone_offset,
         }
 
-        with open(self.path, "w") as f:
-            f.write(json.dumps(config))
+        if self._session_expires is not None:
+            data["session_expires"] = self._session_expires.isoformat()
+
+        return data
+
+    def __repr__(self):
+        return (
+            f"<splatnet.splatnet2.config.Config path='{self.path}' data={self.data()}>"
+        )
 
 
 if __name__ == "__main__":
