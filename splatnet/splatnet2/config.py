@@ -12,7 +12,7 @@ import json
 import logging
 import random
 
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 import requests
 
 from splatnet import __version__
@@ -25,11 +25,14 @@ log = logging.getLogger("splatnet.splatnet2")
 
 @cache
 def app_version() -> str:
-    response = requests.get(
-        "https://play.google.com/store/apps/details?id=com.nintendo.znca&hl=en"
-    )
-    soup = BeautifulSoup(response.text, "html.parser")
-    return soup.find("div", text="Current Version").next_sibling.text
+    return "2.1.1"
+    # JavaScript is needed to get app version from Play store at present.
+    #
+    # response = requests.get(
+    #     "https://play.google.com/store/apps/details?id=com.nintendo.znca&hl=en"
+    # )
+    # soup = BeautifulSoup(response.text, "html.parser")
+    # return soup.find("div", text="Current Version").next_sibling.text
 
 
 @cache
