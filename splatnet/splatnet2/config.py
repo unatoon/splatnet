@@ -318,7 +318,7 @@ class Config:
         if self._session_expires is None:
             return True
 
-        return self._session_expires > datetime.now()
+        return self._session_expires < datetime.now()
 
     def _get_session_token(self) -> None:
         self._session_token = NintendoAuthorizer().authorize()
