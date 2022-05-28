@@ -56,13 +56,13 @@ for r in results.results:
         aggregate(performances, player_result, result.other_team_result)
 
 
-for name, performance in performances.items():
+for name, perf in performances.items():
     print(name)
-    print(f"Game paint point: {performance['game_paint_point']}")
-    print(f"Kill count:       {performance['kill_count']}")
-    print(f"Assist count:     {performance['assist_count']}")
-    print(f"Special count:    {performance['special_count']}")
-    print(f"Death count:      {performance['death_count']}")
-    print(f"Victory count:    {performance['victory']}")
-    print(f"Defeat count:     {performance['defeat']}")
+    print(f"Game paint point: {perf['game_paint_point']} (avg. {perf['game_paint_point'] / count})")
+    print(f"Kill count:       {perf['kill_count']} (avg. {perf['kill_count'] / count})")
+    print(f"Assist count:     {perf['assist_count']} (avg. {perf['assist_count'] / count})")
+    print(f"Special count:    {perf['special_count']} (avg. {perf['special_count'] / count})")
+    print(f"Death count:      {perf['death_count']} (avg. {perf['death_count'] / count})")
+    print(f"Victory count:    {perf['victory']} / {count}")
+    print(f"Defeat count:     {perf['defeat']} / {count}")
     print("--------------------------------")
