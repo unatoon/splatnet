@@ -56,7 +56,7 @@ class Weapon(BaseModel):
 class Udemae(BaseModel):
     is_number_reached: Optional[bool]
     is_x: bool
-    name: str
+    name: Optional[str]
     number: Optional[int]
     s_plus_number: Optional[int]
 
