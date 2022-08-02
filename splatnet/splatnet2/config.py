@@ -25,7 +25,7 @@ log = logging.getLogger("splatnet.splatnet2")
 
 @cache
 def app_version() -> str:
-    return "2.1.1"
+    return "2.2.0"
     # JavaScript is needed to get app version from Play store at present.
     #
     # response = requests.get(
